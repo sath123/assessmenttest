@@ -3,10 +3,12 @@
         public $dbCon;
 
         public function __construct(){
+		
 			try {
 					$config = parse_ini_file('config.ini');
 
-					$this->dbCon = mysqli_connect($config['server_name'], $config['user_name'], $config['password'], $config['dbname']);
+					$this->dbCon = @mysqli_connect($config['server_name'], $config['user_name'], $config['password'], $config['dbname']) or die('Error in mysql connection '.mysqli_connect_error());					
+					
 
 			} catch (Exception $e) {
 				echo $e->getMessage();
@@ -15,7 +17,7 @@
         }
 
         public function __destruct(){
-                mysqli_close($this->dbCon);
+                //mysqli_close($this->dbCon);
         }   
 
 
