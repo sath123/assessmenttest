@@ -1,7 +1,6 @@
 /*Table structure for table `invoices` */
 
 DROP TABLE IF EXISTS `invoices`;
-
 CREATE TABLE `invoices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` enum('Unpaid','Cancelled','Paid') DEFAULT NULL,
